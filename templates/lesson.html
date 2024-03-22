@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<title>{{ lesson.title }}</title>
+<link rel="stylesheet" href="static/style.css" />
+</head>
+
+<body>
+<h1>{{ lesson.title }}</h1>
+<p>{{ lesson.content }}</p>
+
+<h2>Exercises</h2>
+<ul>
+{% for exercise in exercises %}
+<li>{{ exercise.question }}
+<form action="/submit_exercise" method="post">
+<input type="hidden" name="exercise_id" value="{{ exercise.id }}">
+<input type="text" name="answer">
+<input type="submit" value="Submit">
+</form>
+</li>
+{% endfor %}
+</ul>
+</body>
+
+</html>
+
+
